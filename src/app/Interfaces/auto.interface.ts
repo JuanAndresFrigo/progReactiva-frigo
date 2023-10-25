@@ -1,7 +1,7 @@
 export interface Auto {
   marca: string;
   modelo: string;
-  anio: number;
+  anio: string;
   motor: string;
   color: string;
 }

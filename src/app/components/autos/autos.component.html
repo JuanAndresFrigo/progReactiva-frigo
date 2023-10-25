@@ -1,1 +1,33 @@
-<pre>{{ listAutos$ | async | json }}</pre>
+<div class="container mt-2">
+  <h2>Autos</h2>
+  <app-switch
+    switchLabel="Sólo autos 2023"
+    switchId="2023"
+    (onSwitched)="cargarNuevaLista($event)"
+  ></app-switch>
+
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Color</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of listAutos$ | async; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ item.marca | uppercase }}</td>
+        <td>{{ item.modelo | titlecase }}</td>
+        <td>{{ item.color | titlecase }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="container mt-4">
+  <h2>Json del servicio:</h2>
+  <pre>{{ listAutos$ | async | json }}</pre>
+</div>
